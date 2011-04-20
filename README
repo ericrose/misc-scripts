@@ -1,0 +1,24 @@
+README
+
+rot_sort.py is an implementation of an interview question that I encountered.  Given a rotated sorted array with rotated defined as the 0th element removed from the front of the list and added to the end n times.  ie
+
+[0, 0, 1, 2, 3, 4, 5, 12] is a sorted array
+
+[3, 4, 5, 12, 0, 0, 1, 2] is the array after n "rotation" operations have been applied to it.
+
+develop an algorithm for determining if an arbitrary element is a member of the list.
+
+My solution is a variation of a binary sort.  It doesn't perform as well as python's "in", it works.
+
+
+$ python -mtimeit -s'import rot_sort' 'rot_sort.find_in_list(24, rot_sort.rotate13(range(1,80,2)))'
+10000 loops, best of 3: 31.5 usec per loop
+$ python -mtimeit -s'import rot_sort' 'rot_sort.find_in_list(24, rot_sort.rotate13(range(1,80,2)))'
+10000 loops, best of 3: 30.7 usec per loop
+$ python -mtimeit -s'import rot_sort' '24 in rot_sort.rotate13(range(1,80,2))'
+10000 loops, best of 3: 24.6 usec per loop
+$ python -mtimeit -s'import rot_sort' '25 in rot_sort.rotate13(range(1,80,2))'
+10000 loops, best of 3: 24.4 usec per loop
+$ python -mtimeit -s'import rot_sort' 'rot_sort.find_in_list(25, rot_sort.rotate13(range(1,80,2)))'
+10000 loops, best of 3: 29.9 usec per loop
+ 
